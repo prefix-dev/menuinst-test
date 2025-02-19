@@ -8,7 +8,7 @@
                 "target_environment_is_base": "pixi-editor",
                 "target_environment_is_not_base": "pixi-editor ({{ ENV_NAME }})"
             },
-            "description": "Scientific PYthon Development EnviRonment",
+            "description": "The pixi text-editor",
             "icon": "{{ MENU_DIR }}/pixi-icon.{{ ICON_EXT }}",
             "activate": false,
             "terminal": false,
@@ -33,8 +33,12 @@
                     ]
                 },
                 "osx": {
-                    "command": ["open", "$@"],
+                    "precommand": "pushd \"$(dirname \"$0\")\" &>/dev/null",
+                    "command": ["./python", "{{ PREFIX }}/bin/pixi-editor-launcher.py", "$@"],
                     "CFBundleName": "Pixi Editor",
+                    "link_in_bundle": {
+                        "{{ PREFIX }}/bin/python": "{{ MENU_ITEM_LOCATION }}/Contents/MacOS/python"
+                    },
                     "CFBundleIdentifier": "dev.prefix.pixi-editor",
                     "CFBundleVersion": "0.1.0",
                     "CFBundleDocumentTypes": [
@@ -44,7 +48,7 @@
                             "LSHandlerRank": "Default",
                             "CFBundleTypeIconFile": "pixi-icon.icns",
                             "LSItemContentTypes": [
-                                "public.pixi"
+                                "public.plain-text"
                             ]
                         }
                     ]
