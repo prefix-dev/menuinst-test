@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QEvent, QFileDialog, QAction
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QFileDialog, QAction
 
 class TextEditor(QMainWindow):
     def __init__(self, filename=None):
@@ -60,14 +60,6 @@ class TextEditor(QMainWindow):
                     f.write(self.text_edit.toPlainText())
             except Exception as e:
                 print(f"Error saving file: {e}")
-
-    # Override event handler
-    def event(self, event):
-        print(event)
-        if event.type() == QEvent.Type.FileOpen:
-            self.handle_file(event.file())
-            return True
-        return super().event(event)
 
 
 def main():
