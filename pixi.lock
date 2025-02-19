@@ -1,0 +1,19 @@
+version: 6
+environments:
+  default:
+    channels:
+    - url: https://conda.anaconda.org/conda-forge/
+    packages:
+      osx-arm64:
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.36.0-h3ab7716_0.conda
+packages:
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/rattler-build-0.36.0-h3ab7716_0.conda
+  sha256: f5668de07ee9ab552d1a19d38614b168016ba40eb002ae79b553f4a1bd1421fa
+  md5: f31c129f37baa3aa8cbc1e7956d607d2
+  depends:
+  - __osx >=11.0
+  constrains:
+  - __osx >=11.0
+  license: BSD-3-Clause
+  size: 8983525
+  timestamp: 1739904546535

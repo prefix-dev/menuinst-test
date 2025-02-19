@@ -1,0 +1,13 @@
+[project]
+authors = ["Wolf Vollprecht <w.vollprecht@gmail.com>"]
+channels = ["conda-forge"]
+name = "menuinst-test"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+build = "rattler-build build --recipe pixi-editor"
+
+
+[dependencies]
+rattler-build = ">=0.36.0,<0.37"

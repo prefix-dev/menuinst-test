@@ -1,0 +1,33 @@
+name: Package and sign
+
+on: [push]
+
+jobs:
+  build:
+    permissions:
+      id-token: write
+      contents: read
+      attestations: write
+
+    name: Build package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: prefix-dev/setup-pixi@v0.8.2
+        with:
+          pixi-version: v0.41.1
+
+      - name: Build the package with rattler-build
+        run: |
+          pixi run build
+
+      - uses: actions/attest@v1
+        id: attest
+        with:
+          subject-path: "**/*.conda"
+          predicate-type: "https://example.com/predicates/conda-package"
+          predicate: "{}"
+
+      - name: Upload the package
+        run: |
+          pixi run rattler-build upload prefix -c menuinst-test ./output/**/*.conda --attestation ${{ steps.attest.outputs.bundle-path }}
