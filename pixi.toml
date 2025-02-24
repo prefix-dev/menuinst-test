@@ -6,8 +6,7 @@ platforms = ["osx-arm64", "linux-64", "win-64"]
 version = "0.1.0"
 
 [tasks]
-build = "rattler-build build --recipe-dir ./recipes"
-
+build = "rattler-build build --recipe-dir ./recipes --skip-existing=all -c conda-forge -c https://prefix.dev/menuinst-test"
 
 [dependencies]
 rattler-build = ">=0.36.0,<0.37"

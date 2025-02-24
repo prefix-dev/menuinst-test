@@ -20,6 +20,6 @@ build:
 
 requirements:
   build:
-    - ripgrep ${{ version }}
+    - ripgrep ==${{ version }}
   run:
-    - ripgrep ${{ version }}
+    - ripgrep ==${{ version }}
