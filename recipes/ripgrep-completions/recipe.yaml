@@ -6,7 +6,8 @@ package:
   version: ${{ version }}
 
 build:
-  number: 0
+  number: 1
+  noarch: generic
   script:
     # ZSH completions
     - mkdir -p $PREFIX/share/zsh/site-functions
