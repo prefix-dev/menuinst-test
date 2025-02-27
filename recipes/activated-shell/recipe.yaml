@@ -1,16 +1,12 @@
 package:
-  name: pixi-editor
-  version: "0.3.2"
+  name: activated-shell
+  version: "0.1.0"
 
 build:
   noarch: generic
   script:
-    - mkdir -p $PREFIX/bin
-    - cp $RECIPE_DIR/src/main.py $PREFIX/bin/pixi-editor-launcher.py
     - mkdir -p $PREFIX/Menu
     - cp $RECIPE_DIR/menu/menu.json $PREFIX/Menu/pixi-editor.json
     - cp $RECIPE_DIR/../../icons/pixi-icon.* $PREFIX/Menu/
-
-requirements:
-  run:
-    - pyqt 5.*
+    - mkdir -p "${PREFIX}/etc/conda/activate.d"
+    - cp $RECIPE_DIR/activate.sh "${PREFIX}/etc/conda/activate.d/pixi-editor-activate.sh"

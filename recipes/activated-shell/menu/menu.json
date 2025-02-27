@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema",
+    "$id": "https://schemas.conda.org/menuinst-1.schema.json",
+    "menu_name": "activated-shell",
+    "menu_items": [
+        {
+            "name": "activated-shell",
+            "description": "A activated shell",
+            "icon": "{{ MENU_DIR }}/pixi-icon.{{ ICON_EXT }}",
+            "activate": true,
+            "terminal": false,
+            "command": [""],
+            "platforms": {
+                "win": {
+                    "terminal_profile": true,
+                    "command": ["cmd.exe"]
+                },
+                "linux": {
+                    "command": ["gnome-terminal"]
+                },
+                "osx": {
+                    "command": ["open", "-a", "Terminal"]
+                }
+            }
+        }
+    ]
+}
