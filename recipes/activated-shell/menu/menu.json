@@ -12,7 +12,7 @@
             "command": [""],
             "platforms": {
                 "win": {
-                    "terminal_profile": true,
+                    "terminal_profile": "pixi-activated-shell",
                     "command": ["cmd.exe"]
                 },
                 "linux": {
