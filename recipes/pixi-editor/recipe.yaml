@@ -14,3 +14,5 @@ build:
 requirements:
   run:
     - pyqt 5.*
+    - if: linux
+      then: qt-wayland
